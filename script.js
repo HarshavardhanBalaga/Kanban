@@ -114,13 +114,16 @@ addTaskBtn.addEventListener("click", () => {
   const titleInput = document.getElementById("title");
   const descriptionInput = document.getElementById("description");
 
-  addTask(titleInput.value, descriptionInput.value, todo);
-  updateCounts();
-  
-  // Clear input fields
-  titleInput.value = "";
-  descriptionInput.value = "";
-
-  modal.classList.remove("active");
+  // Only add task if title or description has content
+  if (titleInput.value.trim() !== "" || descriptionInput.value.trim() !== "") {
+    addTask(titleInput.value, descriptionInput.value, todo);
+    updateCounts();
+    
+    // Clear input fields
+    titleInput.value = "";
+    descriptionInput.value = "";
+    
+    modal.classList.remove("active");
+  }
 });
   
